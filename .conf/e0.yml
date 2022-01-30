@@ -1,0 +1,18 @@
+port: 8082
+
+elastic:
+  url: http://localhost:9200
+  indexes:
+    event: credit-card-data
+
+consumer:
+  brokers:
+    - localhost:9092
+  topic: SharedKafka_credit-card-mgmt
+  group: SharedKafka_credit-card
+  commitInterval: 3s
+
+producer:
+  brokers:
+    - localhost:9092
+  topic: SharedKafka_user-notifications
